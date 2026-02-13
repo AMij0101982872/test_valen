@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma Valentine ?</title>
+
+<style>
+body{ 
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  color:white;
+  overflow:hidden;
+}
+
+/* ===== BACKGROUND CINEMATIQUE OPTIMISÉ (ANTI-LAG) ===== */
+.bg-slideshow{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  z-index:-2;
+  display:none;
+  overflow:hidden;
+}
+
+/* IMPORTANT : images ET vidéos adaptées à l'écran */
+.slide{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;   /* Remplit tout l'écran sans déformation */
+  opacity:0;
+  animation:cinema 80s linear infinite;
+}
+
+/* Empêche les vidéos de casser le layout mobile */
+video.slide{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Animation plus lente = moins de RAM */
+@keyframes cinema{
+  0%{opacity:0;transform:scale(1.08)}
+  3%{opacity:1}
+  10%{opacity:1}
+  13%{opacity:0}
+  100%{opacity:0}
+}
+
+/* ===== PLUIE DE COEURS ===== */
+.heart{
+  position:fixed;
+  top:-20px;
+  font-size:20px;
+  animation:fall linear forwards;
+  z-index:-1;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
+.card{
+  background:rgba(255,255,255,0.15);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  max-width:420px;
+  width:92%;
+  text-align:center;
+  z-index:2;
+}
+
+h1{font-size:24px;margin-bottom:15px}
+
+button{
+  border:none;
+  padding:12px 20px;
+  margin:10px;
+  border-radius:12px;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#yes{background:white;color:#ff4d6d;font-weight:bold}
+#no{background:#ff4d6d;color:white}
+
+button:hover{transform:scale(1.08)}
+
+#message{
+  margin-top:15px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+.preview img{
+  width:100%;
+  border-radius:15px;
+}
+
+
+/* ===== LETTRE D'AMOUR ===== */
+.letter{
+  margin-top:15px;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(8px);
+  font-size:15px;
+  line-height:1.6;
+  display:none;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+
+
+/* ===== LETTRE D'AMOUR ===== */
+.letter{
+  margin-top:15px;
+  padding:15px;
+  border-radius:15px;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(8px);
+  font-size:15px;
+  line-height:1.6;
+  display:none;
+  animation:fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND PHOTOS / VIDEOS -->
+<div class="bg-slideshow" id="bg">
+
+
+<img class="slide" src="1m5.jpeg" style="animation-delay:0s">
+<img class="slide" src="im4.jpeg" style="animation-delay:4s">
+<img class="slide" src="WhatsApp Image 2026-02-07 at 16.10.39.jpeg" style="animation-delay:8s">
+<img class="slide" src="WhatsApp Image 2026-02-07 at 16.01.52.jpeg" style="animation-delay:12s">
+
+<img class="slide" src="elle1.jpeg" style="animation-delay:20s">
+<img class="slide" src="elle2.jpeg" style="animation-delay:24s">
+<img class="slide" src="elle3.jpeg" style="animation-delay:28s">
+<img class="slide" src="elle4.jpeg" style="animation-delay:32s">
+
+<!-- ⚠️ ASTUCE ANTI-LAG : preload=none pour éviter que toutes les vidéos chargent en même temps -->
+<video class="slide" src="video1.mp4" muted loop playsinline preload="none" style="animation-delay:36s"></video>
+<video class="slide" src="video2.mp4" muted loop playsinline preload="none" style="animation-delay:40s"></video>
+<video class="slide" src="video3.mp4" muted loop playsinline preload="none" style="animation-delay:44s"></video>
+<video class="slide" src="video4.mp4" muted loop playsinline preload="none" style="animation-delay:48s"></video>
+<video class="slide" src="video5.mp4" muted loop playsinline preload="none" style="animation-delay:52s"></video>
+<video class="slide" src="video6.mp4" muted loop playsinline preload="none" style="animation-delay:56s"></video>
+<video class="slide" src="video7.mp4" muted loop playsinline preload="none" style="animation-delay:60s"></video>
+<video class="slide" src="video8.mp4" muted loop playsinline preload="none" style="animation-delay:64s"></video>
+<video class="slide" src="video9.mp4" muted loop playsinline preload="none" style="animation-delay:68s"></video>
+<video class="slide" src="video10.mp4" muted loop playsinline preload="none" style="animation-delay:72s"></video>
+<video class="slide" src="dernier1.mp4" muted loop playsinline preload="none" style="animation-delay:76s"></video>
+<video class="slide" src="dernier2.mp4" muted loop playsinline preload="none" style="animation-delay:80s"></video>
+<video class="slide" src="lass1.mp4" muted loop playsinline preload="none" style="animation-delay:100s"></video>
+</div>
+
+<div class="card">
+  <h1>Veux-tu être ma Valentine ? 💖</h1>
+
+  <button id="yes">Oui 😍</button>
+  <button id="no">Non 🙈</button>
+
+  <div id="message"></div>
+
+  <!-- 💌 LETTRE ROMANTIQUE -->
+  <div id="letter" class="letter">
+    Depuis que tu es entrée dans ma vie, chaque moment est devenu plus beau.
+    Ton sourire illumine mes journées et ta présence rend tout magique.
+    Ce site est une petite preuve de ce que je ressens pour toi… 💖
+  </div>
+
+  <!-- 💌 LETTRE ROMANTIQUE -->
+  <div id="letter" class="letter">
+    <p>
+      Depuis que tu es entrée dans ma vie, chaque moment est devenu plus beau.
+      Ton sourire illumine mes journées et ta présence rend tout plus doux.
+      Ce petit site n'est qu'une façon de te montrer à quel point tu comptes pour moi.
+      Merci d'être toi… et d'apporter autant de bonheur autour de toi. 💖
+    </p>
+  </div>
+
+  <div class="preview">
+    <img id="bigPhoto" src="WhatsApp Image 2026-02-07 at 16.01.52.jpeg">
+  </div>
+</div>
+
+<script>
+const yesBtn=document.getElementById("yes");
+const noBtn=document.getElementById("no");
+const message=document.getElementById("message");
+const bg=document.getElementById("bg");
+
+// ▶️ Lance uniquement les vidéos visibles (ANTI RAM 🔥)
+function controlVideos(){
+  const videos=document.querySelectorAll("video.slide");
+  videos.forEach(v=>v.pause());
+
+  const visible=document.querySelectorAll(".slide");
+  visible.forEach(el=>{
+    if(getComputedStyle(el).opacity>0 && el.tagName==='VIDEO'){
+      el.play().catch(()=>{});
+    }
+  });
+}
+
+setInterval(controlVideos,500);
+
+yesBtn.onclick = () => {
+  message.innerHTML = "go abbey la a accepter. JE T AIME ESTHER💖✨";
+  bg.style.display = "block";
+  document.body.style.background = "black";
+
+  // 🔊 LANCE LA MUSIQUE ROMANTIQUE
+  const music = document.getElementById("music");
+  if (music) {
+    music.muted = false;   // important mobile
+    music.volume = 1;
+    music.currentTime = 0;
+    music.play().catch(()=>{});
+  }
+
+  document.getElementById("letter").style.display = "block";
+  startHearts();
+};
+
+noBtn.onmouseover=()=>{
+  const x=Math.random()*200-100;
+  const y=Math.random()*200-100;
+  noBtn.style.transform=`translate(${x}px,${y}px)`;
+};
+
+function startHearts(){
+  setInterval(()=>{
+    const heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*3)+"s";
+    heart.style.fontSize=(16+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+  },300);
+}
+</script>
+
+<!-- 🎵 Utiliser un vrai fichier audio mp3 ou wav -->
+<audio id="music" src="w5tjib (video-converter.com).mp3" preload="auto" loop></audio>
+</body>
+</html>
